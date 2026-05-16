@@ -16,7 +16,7 @@ import sys
 import os
 
 
-def run_behave(project_dir, label):
+def run_behave(project_dir, label, feature_file="features/login.feature"):
     """Ejecuta behave en el directorio indicado y mide el tiempo."""
     print(f"\n{'='*60}")
     print(f"  Ejecutando: {label}")
@@ -24,7 +24,7 @@ def run_behave(project_dir, label):
 
     start = time.time()
     result = subprocess.run(
-        [sys.executable, "-m", "behave", "--no-capture"],
+        [sys.executable, "-m", "behave", "--no-capture", feature_file],
         cwd=project_dir,
         capture_output=True,
         text=True,
